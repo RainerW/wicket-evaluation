@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.example.pages.HomePage;
+import com.example.pages.WicketApplication;
 
 /**
  * Simple test using the WicketTester
