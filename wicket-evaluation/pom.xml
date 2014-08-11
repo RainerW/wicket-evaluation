@@ -66,6 +66,17 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.55minutes</groupId>
+			<artifactId>fiftyfive-wicket-test</artifactId>
+			<version>4.0.2</version>
+		</dependency>
 
 		<!-- JETTY DEPENDENCIES FOR TESTING -->
 		<dependency>
@@ -74,7 +85,7 @@
 			<version>${jetty.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -91,7 +102,7 @@
 			<artifactId>wicket-spring</artifactId>
 			<version>${wicket.version}</version>
 		</dependency>
-		
+
 		<!-- Database access -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -108,7 +119,7 @@
 			<artifactId>derby</artifactId>
 			<version>10.10.2.0</version>
 		</dependency>
-        
+
 	</dependencies>
 	<build>
 		<resources>
@@ -199,6 +210,11 @@
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
+		</repository>
+		<repository>
+			<id>fiftyfive</id>
+			<name>fiftyfive</name>
+			<url>http://opensource.55minutes.com/maven-releases</url>
 		</repository>
 	</repositories>
 

@@ -14,10 +14,12 @@ import com.example.services.PlayerService;
 public class PlayerListDataProvider extends ListDataProvider<Player> {
 	@Inject
 	PlayerService playerService;
+	
 	SportArt filter;
 
 	public PlayerListDataProvider(SportArt art) {
-		Injector.get().inject(this);
+		Injector injector = Injector.get();
+		injector.inject(this);
 		filter = art;
 	}
 
