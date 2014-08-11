@@ -9,9 +9,9 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 public class ActivateOnPage extends Behavior
 {
 
-  Class<HomePage> _activeOn;
+  Class<? extends Page> _activeOn;
 
-  public ActivateOnPage(Class<HomePage> claazz)
+  public ActivateOnPage(Class<? extends Page> claazz)
   {
     _activeOn = claazz;
   }
