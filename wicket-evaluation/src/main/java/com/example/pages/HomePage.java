@@ -14,14 +14,16 @@ import com.example.component.player.PlayerTable;
 import com.example.model.Player;
 import com.example.services.PlayerService;
 
-public class HomePage extends BasePage {
-	private static final long serialVersionUID = 1L;
+public class HomePage extends BasePage
+{
+  private static final long serialVersionUID = 1L;
 
-	@Inject
-	PlayerService s;
+  @Inject
+  PlayerService s;
 
-	@Override
-	protected void onInitialize() {
-		super.onInitialize();
-	}
+  @Override
+  protected void onInitialize()
+  {
+    super.onInitialize();
+  }
 }

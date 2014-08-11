@@ -21,33 +21,37 @@ import com.example.pages.tennis.Tennis;
  * @see com.example.Start#main(String[])
  */
 @Service
-public class WicketApplication extends WebApplication {
-	/**
-	 * @see org.apache.wicket.Application#getHomePage()
-	 */
-	@Override
-	public Class<? extends WebPage> getHomePage() {
-		return HomePage.class;
-	}
+public class WicketApplication extends WebApplication
+{
+  /**
+   * @see org.apache.wicket.Application#getHomePage()
+   */
+  @Override
+  public Class<? extends WebPage> getHomePage()
+  {
+    return HomePage.class;
+  }
 
-	/**
-	 * @see org.apache.wicket.Application#init()
-	 */
-	@Override
-	public void init() {
-		super.init();
+  /**
+   * @see org.apache.wicket.Application#init()
+   */
+  @Override
+  public void init()
+  {
+    super.init();
 
-		mountPage("fussball", Fussball.class);
-		mountPage("tennis", Tennis.class);
-		mountPage("about", About.class);
-		mountPage("spieler/#{id}/createOrEdit", EditSpieler.class);
-		mountPage("spieler/confirm", ConfirmSave.class);
+    mountPage("fussball", Fussball.class);
+    mountPage("tennis", Tennis.class);
+    mountPage("about", About.class);
+    mountPage("spieler/#{id}/createOrEdit", EditSpieler.class);
+    mountPage("spieler/confirm", ConfirmSave.class);
 
-		getComponentInstantiationListeners().add(createComponentInstantiationListener());
-	}
+    getComponentInstantiationListeners().add(createComponentInstantiationListener());
+  }
 
-	protected IComponentInstantiationListener createComponentInstantiationListener() {
-		return new SpringComponentInjector(this);
-	}
+  protected IComponentInstantiationListener createComponentInstantiationListener()
+  {
+    return new SpringComponentInjector(this);
+  }
 
 }

@@ -11,20 +11,23 @@ import com.example.model.Player;
 import com.example.model.SportArt;
 import com.example.services.PlayerService;
 
-public class PlayerListDataProvider extends ListDataProvider<Player> {
-	@Inject
-	PlayerService playerService;
-	
-	SportArt filter;
+public class PlayerListDataProvider extends ListDataProvider<Player>
+{
+  @Inject
+  PlayerService playerService;
 
-	public PlayerListDataProvider(SportArt art) {
-		Injector injector = Injector.get();
-		injector.inject(this);
-		filter = art;
-	}
+  SportArt filter;
 
-	@Override
-	protected List<Player> getData() {
-		return playerService.getAllPlayers(filter);
-	}
+  public PlayerListDataProvider(SportArt art)
+  {
+    Injector injector = Injector.get();
+    injector.inject(this);
+    filter = art;
+  }
+
+  @Override
+  protected List<Player> getData()
+  {
+    return playerService.getAllPlayers(filter);
+  }
 }

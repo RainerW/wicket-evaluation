@@ -9,10 +9,11 @@ import com.example.model.Player;
 import com.example.model.SportArt;
 
 @Repository
-public interface PlayerRepository extends JpaRepository<Player, Long> {
+public interface PlayerRepository extends JpaRepository<Player, Long>
+{
 
-	List<Player> findBySportart(SportArt filter);
+  List<Player> findBySportart(SportArt filter);
 
-	Player findByEmail(String email);
-    
+  Player findByEmail(String email);
+
 }

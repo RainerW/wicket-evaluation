@@ -60,15 +60,13 @@ public class HomePageTest extends AbstractWicketTest
     tester.clickLink("fussball");
 
     tester.assertRenderedPage(Fussball.class);
-    WicketTestUtils.assertXPath(2, tester,
-        "//table[@class='table']/tbody/tr");
+    WicketTestUtils.assertXPath(2, tester, "//table[@class='table']/tbody/tr");
 
     // * Main Menu : "fussball"
     tester.clickLink("tennis");
 
     tester.assertRenderedPage(Tennis.class);
-    WicketTestUtils.assertXPath(2, tester,
-        "//table[@class='table']/tbody/tr");
+    WicketTestUtils.assertXPath(2, tester, "//table[@class='table']/tbody/tr");
 
     // * Main Menu : "home"
     tester.clickLink("homeActive:home");

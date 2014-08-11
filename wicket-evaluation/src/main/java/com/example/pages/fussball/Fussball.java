@@ -10,27 +10,32 @@ import com.example.model.SportArt;
 import com.example.pages.BasePage;
 import com.example.pages.spieler.EditSpieler;
 
-public class Fussball extends BasePage {
-	@Override
-	protected void onInitialize() {
-		super.onInitialize();
-		add(new PlayerTable("spielerliste", SportArt.FUSSBALL));
-		add(new AjaxFallbackLink<Player>("neuerSpieler") {
+public class Fussball extends BasePage
+{
+  @Override
+  protected void onInitialize()
+  {
+    super.onInitialize();
+    add(new PlayerTable("spielerliste", SportArt.FUSSBALL));
+    add(new AjaxFallbackLink<Player>("neuerSpieler") {
 
-			@Override
-			public void onClick(AjaxRequestTarget target) {
-				setResponsePage(new EditSpieler(new Player(SportArt.FUSSBALL)) {
-					@Override
-					protected void onBack() {
-						setResponsePage(Fussball.this);
-					}
+      @Override
+      public void onClick(AjaxRequestTarget target)
+      {
+        setResponsePage(new EditSpieler(new Player(SportArt.FUSSBALL)) {
+          @Override
+          protected void onBack()
+          {
+            setResponsePage(Fussball.this);
+          }
 
-					@Override
-					protected void afterSave() {
-						setResponsePage(Fussball.this);
-					}
-				});
-			}
-		});
-	}
+          @Override
+          protected void afterSave()
+          {
+            setResponsePage(Fussball.this);
+          }
+        });
+      }
+    });
+  }
 }

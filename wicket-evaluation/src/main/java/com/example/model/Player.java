@@ -9,73 +9,83 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Index;
 
-
 @Entity
-public class Player implements Serializable {
-	@Id
-	@GeneratedValue
-	Long id;
-	
-	@Column(nullable=false)
-	String vorname;
-	
-	@Column
-	String nachname;
-	
-	@Column(nullable=false,unique=true)
-	String email;
-	
-	@Enumerated
-	SportArt sportart;
+public class Player implements Serializable
+{
+  @Id
+  @GeneratedValue
+  Long id;
 
-	public Player() {
-		
-	}
-	
-	public Player(SportArt art) {
-		sportart =art;
-	}
+  @Column(nullable = false)
+  String vorname;
 
-	public Long getId() {
-		return id;
-	}
+  @Column
+  String nachname;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  @Column(nullable = false, unique = true)
+  String email;
 
-	public String getVorname() {
-		return vorname;
-	}
+  @Enumerated
+  SportArt sportart;
 
-	public void setVorname(String vorname) {
-		this.vorname = vorname;
-	}
+  public Player()
+  {
 
-	public String getNachname() {
-		return nachname;
-	}
+  }
 
-	public void setNachname(String nachname) {
-		this.nachname = nachname;
-	}
+  public Player(SportArt art)
+  {
+    sportart = art;
+  }
 
-	public String getEmail() {
-		return email;
-	}
+  public Long getId()
+  {
+    return id;
+  }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+  public void setId(Long id)
+  {
+    this.id = id;
+  }
 
-	public SportArt getSportart() {
-		return sportart;
-	}
+  public String getVorname()
+  {
+    return vorname;
+  }
 
-	public void setSportart(SportArt sportart) {
-		this.sportart = sportart;
-	}
+  public void setVorname(String vorname)
+  {
+    this.vorname = vorname;
+  }
 
-	 
-	
+  public String getNachname()
+  {
+    return nachname;
+  }
+
+  public void setNachname(String nachname)
+  {
+    this.nachname = nachname;
+  }
+
+  public String getEmail()
+  {
+    return email;
+  }
+
+  public void setEmail(String email)
+  {
+    this.email = email;
+  }
+
+  public SportArt getSportart()
+  {
+    return sportart;
+  }
+
+  public void setSportart(SportArt sportart)
+  {
+    this.sportart = sportart;
+  }
+
 }

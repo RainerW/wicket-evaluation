@@ -11,24 +11,30 @@ import com.example.model.SportArt;
 import com.example.repository.PlayerRepository;
 
 @Service
-public class PlayerService {
+public class PlayerService
+{
 
-	@Inject
-	PlayerRepository repo;
+  @Inject
+  PlayerRepository repo;
 
-	public List<Player> getAllPlayers(SportArt filter) {
-		if (filter != null) {
-			return repo.findBySportart(filter);
-		} else {
-			return repo.findAll();
-		}
-	}
+  public List<Player> getAllPlayers(SportArt filter)
+  {
+    if (filter != null)
+    {
+      return repo.findBySportart(filter);
+    } else
+    {
+      return repo.findAll();
+    }
+  }
 
-	public void save(Player object) {
-		repo.save(object);
-	}
+  public void save(Player object)
+  {
+    repo.save(object);
+  }
 
-	public Player findByEmail(String email) {
-		return repo.findByEmail(email);
-	}
+  public Player findByEmail(String email)
+  {
+    return repo.findByEmail(email);
+  }
 }

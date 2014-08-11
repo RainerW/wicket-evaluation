@@ -1,5 +1,6 @@
 package com.example.model;
 
-public enum SportArt {
-	FUSSBALL,TENNIS;
+public enum SportArt
+{
+  FUSSBALL, TENNIS;
 }

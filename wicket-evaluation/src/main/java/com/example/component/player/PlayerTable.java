@@ -21,47 +21,54 @@ import com.example.model.SportArt;
 import com.example.pages.spieler.EditSpieler;
 import com.example.services.PlayerService;
 
-public class PlayerTable extends GenericPanel<List<Player>> {
+public class PlayerTable extends GenericPanel<List<Player>>
+{
 
-	public PlayerTable(String id, SportArt art) {
-		super(id);
-		// method loadPersons is defined elsewhere
-		ListDataProvider<Player> listDataProvider = new PlayerListDataProvider(
-				art);
+  public PlayerTable(String id, SportArt art)
+  {
+    super(id);
+    // method loadPersons is defined elsewhere
+    ListDataProvider<Player> listDataProvider = new PlayerListDataProvider(
+        art);
 
-		DataView<Player> dataView = new DataView<Player>("rows",
-				listDataProvider) {
+    DataView<Player> dataView = new DataView<Player>("rows",
+        listDataProvider) {
 
-			@Override
-			protected void populateItem(Item<Player> item) {
-				Player person = item.getModelObject();
+      @Override
+      protected void populateItem(Item<Player> item)
+      {
+        Player person = item.getModelObject();
 
-				item.add(new Label("vorname", person.getVorname()));
-				item.add(new Label("nachname", person.getNachname()));
-				item.add(new Label("email", person.getEmail()));
-				item.add(new EditPlayerLink("aktionEdit", item.getModel()));
-			}
-		};
-		add(dataView);
-	}
+        item.add(new Label("vorname", person.getVorname()));
+        item.add(new Label("nachname", person.getNachname()));
+        item.add(new Label("email", person.getEmail()));
+        item.add(new EditPlayerLink("aktionEdit", item.getModel()));
+      }
+    };
+    add(dataView);
+  }
 
-	class EditPlayerLink extends Link<Player> {
+  class EditPlayerLink extends Link<Player>
+  {
 
-		public EditPlayerLink(String id, IModel<Player> model) {
-			super(id, model);
-		}
+    public EditPlayerLink(String id, IModel<Player> model)
+    {
+      super(id, model);
+    }
 
-		@Override
-		public void onClick() {
-			setResponsePage(new EditSpieler(getModelObject()) {
+    @Override
+    public void onClick()
+    {
+      setResponsePage(new EditSpieler(getModelObject()) {
 
-				@Override
-				protected void onBack() {
-					setResponsePage(PlayerTable.this.getPage());
-				}
-			});
-		}
+        @Override
+        protected void onBack()
+        {
+          setResponsePage(PlayerTable.this.getPage());
+        }
+      });
+    }
 
-	}
+  }
 
 }
