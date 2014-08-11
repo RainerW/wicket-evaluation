@@ -8,18 +8,21 @@ import org.apache.wicket.injection.Injector;
 import org.apache.wicket.markup.repeater.data.ListDataProvider;
 
 import com.example.model.Player;
+import com.example.model.SportArt;
 import com.example.services.PlayerService;
 
 public class PlayerListDataProvider extends ListDataProvider<Player> {
 	@Inject
 	PlayerService playerService;
+	SportArt filter;
 
-	public PlayerListDataProvider() {
+	public PlayerListDataProvider(SportArt art) {
 		Injector.get().inject(this);
+		filter = art;
 	}
 
 	@Override
 	protected List<Player> getData() {
-		return playerService.getAllPlayers();
+		return playerService.getAllPlayers(filter);
 	}
 }

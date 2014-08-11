@@ -5,14 +5,20 @@
 	<body>
 	<wicket:panel>
 
-	<table>
-	<tr>
-	   <th>Name</th><th>Surename</th><th>Address</th><th>Email</th>
-	</tr>
-	<tr wicket:id="rows">
-	   <td wicket:id="dataRow"></td>
-	</tr>
-</table>
+	<table class="table">
+		<tr>
+		   <th>Name</th>
+		   <th>Vorname</th>
+		   <th>E-Mail</th>
+		   <th>Aktion</th>
+		</tr>
+		<tr wicket:id="rows">
+		   <td><span wicket:id="nachname">Mustermann</span></td>
+		   <td><span wicket:id="vorname">Max</span></td>
+		   <td><span wicket:id="email">max@example.com</span></td>
+		   <td><a wicket:id="aktionEdit"><i class="glyphicon glyphicon-pencil"/></a></td>
+		</tr>
+	</table>
 </wicket:panel>
 	</body>
 </html>

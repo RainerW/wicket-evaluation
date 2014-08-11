@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Index;
 
 
 @Entity
@@ -21,11 +22,19 @@ public class Player implements Serializable {
 	@Column
 	String nachname;
 	
-	@Column(nullable=false)
+	@Column(nullable=false,unique=true)
 	String email;
 	
 	@Enumerated
 	SportArt sportart;
+
+	public Player() {
+		
+	}
+	
+	public Player(SportArt art) {
+		sportart =art;
+	}
 
 	public Long getId() {
 		return id;

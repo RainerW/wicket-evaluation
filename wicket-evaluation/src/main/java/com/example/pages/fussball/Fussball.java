@@ -6,6 +6,7 @@ import org.apache.wicket.model.Model;
 
 import com.example.component.player.PlayerTable;
 import com.example.model.Player;
+import com.example.model.SportArt;
 import com.example.pages.BasePage;
 import com.example.pages.spieler.EditSpieler;
 
@@ -13,12 +14,12 @@ public class Fussball extends BasePage {
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
-		add(new PlayerTable("debug"));
+		add(new PlayerTable("spielerliste", SportArt.FUSSBALL));
 		add(new AjaxFallbackLink<Player>("neuerSpieler") {
 
 			@Override
 			public void onClick(AjaxRequestTarget target) {
-				setResponsePage(new EditSpieler() {
+				setResponsePage(new EditSpieler(new Player(SportArt.FUSSBALL)) {
 					@Override
 					protected void onBack() {
 						setResponsePage(Fussball.this);

@@ -26,7 +26,7 @@ http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
             class="org.springframework.jdbc.datasource.DriverManagerDataSource">
             <property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver" />
             <property name="url"
-                value="jdbc:derby:target/database/evaluation;create=true" />
+                value="jdbc:derby:target/database/evaluation" />
             <property name="username" value="app" />
             <property name="password" value="app" />
         </bean>

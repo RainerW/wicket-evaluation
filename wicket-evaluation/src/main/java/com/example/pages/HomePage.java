@@ -23,7 +23,5 @@ public class HomePage extends BasePage {
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
-		
-		add(new PlayerTable("players"));
 	}
 }

@@ -12,7 +12,7 @@ import com.example.model.Player;
 import com.example.pages.BasePage;
 import com.example.services.PlayerService;
 
-public class ConfirmSave extends BasePage {
+public abstract class ConfirmSave extends BasePage {
 
 	@Inject
 	PlayerService service;
@@ -24,7 +24,7 @@ public class ConfirmSave extends BasePage {
 		form.add(new AjaxFallbackLink("save") {
 			@Override
 			public void onClick(AjaxRequestTarget target) {
-				onSave(player);
+				doSave(player);
 			}
 		});
 		form.add(new AjaxFallbackLink("cancel") {
@@ -45,21 +45,15 @@ public class ConfirmSave extends BasePage {
 		add(form);
 	}
 
-	protected void onCancel() {
+	abstract protected void onCancel();
 
-	}
+	abstract protected void onBack();
 
-	protected void onBack() {
-
-	}
-
-	protected void onSave(Player player) {
+	protected void doSave(Player player) {
 		service.save(player);
 		afterSave();
 	}
 
-	protected void afterSave() {
-
-	}
+	abstract protected void afterSave();
 
 }

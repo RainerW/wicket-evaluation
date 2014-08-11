@@ -7,24 +7,24 @@
 	 
 <wicket:extend>
     <div class="starter-template">
-      <h1>Spieler anlegen</h1>
+      <h1>Best&auml;tigen</h1>
       
       <form role="form" wicket:id="form">
           <wicket:container wicket:id="feedback"/>
-		  <div class="form-group">
+		  <div class="form-group" wicket:id="nachnameEMail">
 		    <label for="exampleInputEmail1">E-Mail*</label>
 		    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" wicket:id="email">
 		  </div>
-		  <div class="form-group">
+		  <div class="form-group" wicket:id="vornameFeedback">
 		    <label for="exampleInputVorname">Vorname</label>
 		    <input type="text" class="form-control" id="exampleInputVorname" placeholder="Vorname" wicket:id="vorname">
 		  </div>
-		  <div class="form-group">
+		  <div class="form-group" wicket:id="nachnameFeedback">
 		    <label for="exampleInputNachname">Nachname*</label>
 		    <input type="text" class="form-control" id="exampleInputNachname" placeholder="Nachname"  wicket:id="nachname">
 		  </div>
 		  <button type="submit" class="btn btn-default">Anlegen</button>
-		  <button type="cancel" class="btn">Abbrechen</button>
+		  <button type="cancel" wicket:id="cancel" class="btn">Abbrechen</button>
 		</form>
 		
     </div>
