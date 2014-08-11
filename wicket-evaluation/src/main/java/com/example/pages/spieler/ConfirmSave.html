@@ -9,19 +9,21 @@
     <div class="starter-template">
       <h1>Spieler anlegen</h1>
       
-      <dl>
-		  <dt>E-Mail</dt>
-		  <dd>yups@example.com</dd>
-		  <dt>Vorname</dt>
-		  <dd>Max</dd>
-		  <dt>Nachname</dt>
-		  <dd>Muserman</dd>
-		  <dt>Sportart</dt>
-		  <dd>Fussball</dd>
-	  </dl>
-	  <a type="submit" class="btn btn-default" href="/fussball">Speichern</a>
-	  <a type="cancel" class="btn" href="/spieler/createOrEdit">Zur&uuml;ck</a>
-	  <a type="cancel" class="btn" href="/fussball">Abbrechen</a>
+      <form role="form" wicket:id="form">
+	      <dl>
+			  <dt>E-Mail</dt>
+			  <dd><span wicket:id="email">yups@example.com</span></dd>
+			  <dt>Vorname</dt>
+			  <dd><span wicket:id="vorname">Max</span></dd>
+			  <dt>Nachname</dt>
+			  <dd><span wicket:id="nachname">Musterman</span></dd>
+			  <dt>Sportart</dt>
+			  <dd>Fussball</dd>
+		  </dl>
+		  <a type="submit" class="btn btn-default" wicket:id="save">Speichern</a>
+		  <a type="cancel" class="btn" wicket:id="back">Zur&uuml;ck</a>
+		  <a type="cancel" class="btn" wicket:id="cancel">Abbrechen</a>
+	  </form>
     </div>
 </wicket:extend>
   

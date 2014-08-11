@@ -6,6 +6,7 @@
 	<body>
 	 
 <wicket:extend>
+    <div wicket:id="debug"></div>
     <div class="starter-template">
       <h1>Fussball Spieler</h1>
       
@@ -39,7 +40,7 @@
         </tr>
       </tbody>
     </table>
-    <a href="spieler/createOrEdit" class="btn btn-default"><i class="glyphicon glyphicon-plus"/> Neuer Spieler</a>
+    <a href="spieler/createOrEdit" class="btn btn-default" wicket:id="neuerSpieler"><i class="glyphicon glyphicon-plus"/> Neuer Spieler</a>
 
     </div>
 </wicket:extend>

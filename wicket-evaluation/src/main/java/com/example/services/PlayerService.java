@@ -16,10 +16,10 @@ public class PlayerService {
 	PlayerRepository repo;
 
 	public List<Player> getAllPlayers() {
-		Player p = new Player();
-		p.setEmail("x");
-		p.setVorname("y");
-		repo.save(p);
 		return repo.findAll();
+	}
+
+	public void save(Player object) {
+		repo.save(object);
 	}
 }

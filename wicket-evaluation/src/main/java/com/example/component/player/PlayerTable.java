@@ -19,12 +19,10 @@ import com.example.services.PlayerService;
 
 public class PlayerTable extends GenericPanel<List<Player>>{
 
-	@Inject
-	PlayerService playerService;
 	
 	public PlayerTable(String id) {
 		super(id);
-		Injector.get().inject(this);
+		
 	}
 	
 	@Override
@@ -32,29 +30,27 @@ public class PlayerTable extends GenericPanel<List<Player>>{
 		super.onInitialize();
 		
 		// method loadPersons is defined elsewhere
-				List<Player> persons = playerService.getAllPlayers();
-				ListDataProvider<Player> listDataProvider = new ListDataProvider<Player>(
-						persons);
+		ListDataProvider<Player> listDataProvider = new PlayerListDataProvider();
 
-				DataView<Player> dataView = new DataView<Player>("rows",listDataProvider) {
+		DataView<Player> dataView = new DataView<Player>("rows",listDataProvider) {
 
-					@Override
-					protected void populateItem(Item<Player> item) {
-						Player person = item.getModelObject();
-						RepeatingView repeatingView = new RepeatingView("dataRow");
+			@Override
+			protected void populateItem(Item<Player> item) {
+				Player person = item.getModelObject();
+				RepeatingView repeatingView = new RepeatingView("dataRow");
 
-						repeatingView.add(new Label(repeatingView.newChildId(), person
-								.getVorname()));
+				repeatingView.add(new Label(repeatingView.newChildId(), person
+						.getVorname()));
 //						repeatingView.add(new Label(repeatingView.newChildId(), person
 //								.getSurename()));
 //						repeatingView.add(new Label(repeatingView.newChildId(), person
 //								.getAddress()));
 //						repeatingView.add(new Label(repeatingView.newChildId(), person
 //								.getEmail()));
-						item.add(repeatingView);
-					}
-				};
-				add(dataView);
+				item.add(repeatingView);
+			}
+		};
+		add(dataView);
 	}
 
 }
