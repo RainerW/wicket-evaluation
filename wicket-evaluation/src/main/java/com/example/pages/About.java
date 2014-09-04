@@ -1,9 +1,9 @@
 package com.example.pages;
 
-import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.request.mapper.parameter.PageParameters;
-
+/**
+ * Seite für den About-Link.
+ */
 public class About extends BasePage
 {
-
+  private static final long serialVersionUID = 1L;
 }
