@@ -16,7 +16,7 @@ import com.example.pages.tennis.Tennis;
  * Basisklasse für alle seiten der Anwendung.
  * Stellt das Basislayout der Seite inkl. Menü und der Fußzeile mit der Wicketversion bereit.
  */
-public class BasePage extends WebPage
+public abstract class BasePage extends WebPage
 {
   private static final long serialVersionUID = 1L;
 
