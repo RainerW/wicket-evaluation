@@ -197,6 +197,15 @@
 					<wtpversion>${wtp.version}</wtpversion>
 				</configuration>
 			</plugin>
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <configuration>
+          <scanIntervalSeconds>3</scanIntervalSeconds>
+          <stopKey/>
+          <stopPort/>
+        </configuration>
+      </plugin>
 		</plugins>
 	</build>
 
