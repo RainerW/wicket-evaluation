@@ -4,8 +4,11 @@ import org.apache.wicket.Component;
 import org.apache.wicket.Page;
 import org.apache.wicket.behavior.Behavior;
 import org.apache.wicket.markup.ComponentTag;
-import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 
+/**
+ * Markiert eine Menüpunkt als aktiv, d.h. fügt die CSS-Classe "active" hinzu, 
+ * wenn die Klasse der aktuellen Seite der Klasse der zuvor übergebenen Klasse entspricht.
+ */
 public class ActivateOnPage extends Behavior
 {
 
