@@ -29,6 +29,8 @@ import com.example.repository.PlayerRepository;
 
 public class EditSpieler extends BasePage
 {
+  public static final String ID_PARAM = "id";
+  
   Player player;
 
   public EditSpieler(Player toEdit)
@@ -41,7 +43,7 @@ public class EditSpieler extends BasePage
 
   public EditSpieler(PageParameters param)
   {
-    Long id = param.get("id").toOptionalLong();
+    Long id = param.get(ID_PARAM).toOptionalLong();
     if (id == null)
     {
       throw new RedirectToUrlException("404");
