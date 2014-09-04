@@ -1,14 +1,11 @@
 package com.example.pages;
 
-import org.apache.wicket.application.IComponentInitializationListener;
 import org.apache.wicket.application.IComponentInstantiationListener;
-import org.apache.wicket.injection.Injector;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.springframework.stereotype.Service;
 
-import com.example.Start;
 import com.example.pages.fussball.Fussball;
 import com.example.pages.spieler.ConfirmSave;
 import com.example.pages.spieler.EditSpieler;
