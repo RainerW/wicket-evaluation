@@ -13,11 +13,12 @@ public class Tennis extends BasePage
   {
     super.onInitialize();
     add(new PlayerTable("spielerliste", SportArt.TENNIS));
-    add(new Link8("neuerSpieler", responsePage(
-        new EditSpieler(new Player(SportArt.TENNIS))
-            .onBack(responsePage(Tennis.this))
-            .onSaved(responsePage(Tennis.this))
-        )));
+    add(new Link8("neuerSpieler", () -> {
+      EditSpieler edit = new EditSpieler(new Player(SportArt.TENNIS));
+      edit.onBack( responsePage(Tennis.this) );
+      edit.onSaved( responsePage(Tennis.this) );
+      setResponsePage(edit);
+    }));
   };
 
 }

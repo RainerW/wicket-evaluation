@@ -51,7 +51,6 @@ public class WicketApplication extends WebApplication
 
     getComponentInstantiationListeners().add(createComponentInstantiationListener());
     getMarkupSettings().setMarkupFactory(new MarkupFactory());
-
   }
 
   @Override

@@ -40,6 +40,7 @@ public class ConfirmSave extends BasePage implements IOnBack<ConfirmSave>, IOnCa
   protected void doSave(Player player)
   {
     service.save(player);
+    getSession().info("Spieler '"+player.getEmail()+"' erfolgreich gespeichert");
     actionSaved();
   }
 

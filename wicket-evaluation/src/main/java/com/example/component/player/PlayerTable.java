@@ -6,6 +6,7 @@ import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
@@ -25,9 +26,9 @@ public class PlayerTable extends GenericPanel<List<Player>>
   {
     super(id);
     // method loadPersons is defined elsewhere
-    ListDataProvider<Player> listDataProvider = new PlayerListDataProvider(
-        art);
+    ListDataProvider<Player> listDataProvider = new PlayerListDataProvider( art);
 
+    add(new FeedbackPanel("feedback"));
     DataView<Player> dataView = new DataView<Player>("rows",
         listDataProvider) {
 
@@ -42,7 +43,10 @@ public class PlayerTable extends GenericPanel<List<Player>>
         item.add(new Link8("aktionEdit",() -> {
             setResponsePage(new EditSpieler(person).onBack(()->{
               setResponsePage(PlayerTable.this.getPage());
-            }));
+            }).onSaved(()->{
+              setResponsePage(PlayerTable.this.getPage());
+            })
+            );
         } ));
       }
     };
