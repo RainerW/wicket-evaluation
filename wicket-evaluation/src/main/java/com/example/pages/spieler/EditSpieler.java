@@ -71,8 +71,10 @@ public class EditSpieler extends BasePage implements IOnBack<EditSpieler>,IOnSav
     feedbackEMail.add(new EmailTextField("email").add(
         new UniqueAddressValidator(player)).setRequired(true));
 
-    Button cancel = new Button8("cancel",this::actionBack)
-                          .setDefaultFormProcessing(false);
+    Button cancel = new Button8("cancel",this::actionBack);
+    cancel .setDefaultFormProcessing(false);
+    cancel .setVisibilityAllowed(hasActionBack());
+                          ;
     form.add(cancel);
   }
 

@@ -40,7 +40,9 @@ public class PlayerTable extends GenericPanel<List<Player>>
         item.add(new Label("nachname", person.getNachname()));
         item.add(new Label("email", person.getEmail()));
         item.add(new Link8("aktionEdit",() -> {
-            setResponsePage(new EditSpieler(person));
+            setResponsePage(new EditSpieler(person).onBack(()->{
+              setResponsePage(PlayerTable.this.getPage());
+            }));
         } ));
       }
     };

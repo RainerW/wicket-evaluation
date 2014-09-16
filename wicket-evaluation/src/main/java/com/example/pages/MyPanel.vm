@@ -1,0 +1,11 @@
+#if( $model.isEmpty() )
+  Es sind noch keine Spieler in der Datenbank vorhanden
+#else
+  Alle aktuell vorhandenen Spieler:
+  <dl>
+  #foreach( $player in $model )
+    <dt>$player.email</dt>
+    <dd>$player.vorname, $player.nachname spielt $player.sportart</dd>
+  #end
+  </dl>
+#end

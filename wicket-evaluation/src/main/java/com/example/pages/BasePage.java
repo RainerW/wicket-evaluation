@@ -63,18 +63,4 @@ public abstract class BasePage extends WebPage implements IActionList
     return () -> {setResponsePage(target);};
   }
   
-  Map<String, LWicketAction> actionMap = new HashMap<String, LWicketAction>();
-  
-  @Override
-  public void setAction(String id, LWicketAction action)
-  {
-    actionMap.put(id,action);
-  }
-
-  @Override
-  public LWicketAction getAction(String id)
-  {
-    return actionMap.get(id);
-  }
-
 }
