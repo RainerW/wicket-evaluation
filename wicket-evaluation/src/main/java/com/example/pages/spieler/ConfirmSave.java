@@ -1,64 +1,46 @@
 package com.example.pages.spieler;
 
 import javax.inject.Inject;
+import javax.swing.plaf.basic.BasicSliderUI.ActionScroller;
 
-import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.model.CompoundPropertyModel;
 
+import com.example.java8.Form8;
+import com.example.java8.IOnBack;
+import com.example.java8.IOnCancel;
+import com.example.java8.IOnSaved;
+import com.example.java8.LWicketAction;
+import com.example.java8.Link8;
 import com.example.model.Player;
 import com.example.pages.BasePage;
 import com.example.services.PlayerService;
 
-public abstract class ConfirmSave extends BasePage
+public class ConfirmSave extends BasePage implements IOnBack<ConfirmSave>, IOnCancel<ConfirmSave>, IOnSaved<ConfirmSave>
 {
-
   @Inject
   PlayerService service;
 
   public ConfirmSave(final Player player)
   {
     super();
-    Form<Player> form = new Form<Player>("form", new CompoundPropertyModel<Player>(player));
-    form.add(new AjaxFallbackLink("save") {
-      @Override
-      public void onClick(AjaxRequestTarget target)
-      {
-        doSave(player);
-      }
-    });
-    form.add(new AjaxFallbackLink("cancel") {
-      @Override
-      public void onClick(AjaxRequestTarget target)
-      {
-        onCancel();
-      }
-    });
-    form.add(new AjaxFallbackLink("back") {
-      @Override
-      public void onClick(AjaxRequestTarget target)
-      {
-        onBack();
-      }
-    });
+    Form8<Player> form = new Form8<>("form", player);
+
+    form.add(new Link8("save", () -> {
+      doSave(player);
+    }));
+    form.add(new Link8("cancel", this::actionCancel));
+    form.add(new Link8("back", this::actionBack));
+
     form.add(new Label("vorname"));
     form.add(new Label("nachname"));
     form.add(new Label("email"));
     add(form);
   }
 
-  abstract protected void onCancel();
-
-  abstract protected void onBack();
-
   protected void doSave(Player player)
   {
     service.save(player);
-    afterSave();
+    actionSaved();
   }
-
-  abstract protected void afterSave();
 
 }

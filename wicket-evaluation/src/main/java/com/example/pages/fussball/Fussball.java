@@ -1,10 +1,7 @@
 package com.example.pages.fussball;
 
-import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
-import org.apache.wicket.model.Model;
-
 import com.example.component.player.PlayerTable;
+import com.example.java8.Link8;
 import com.example.model.Player;
 import com.example.model.SportArt;
 import com.example.pages.BasePage;
@@ -17,25 +14,10 @@ public class Fussball extends BasePage
   {
     super.onInitialize();
     add(new PlayerTable("spielerliste", SportArt.FUSSBALL));
-    add(new AjaxFallbackLink<Player>("neuerSpieler") {
-
-      @Override
-      public void onClick(AjaxRequestTarget target)
-      {
-        setResponsePage(new EditSpieler(new Player(SportArt.FUSSBALL)) {
-          @Override
-          protected void onBack()
-          {
-            setResponsePage(Fussball.this);
-          }
-
-          @Override
-          protected void afterSave()
-          {
-            setResponsePage(Fussball.this);
-          }
-        });
-      }
-    });
+    add(new Link8("neuerSpieler",
+        responsePage(new EditSpieler(new Player(SportArt.FUSSBALL))
+            .onBack(responsePage(Fussball.this))
+            .onSaved(responsePage(Fussball.this))
+        )));
   }
 }

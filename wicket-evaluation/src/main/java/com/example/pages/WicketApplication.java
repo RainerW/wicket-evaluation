@@ -1,8 +1,14 @@
 package com.example.pages;
 
+import java.lang.annotation.Annotation;
+
+import org.apache.wicket.IPageFactory;
 import org.apache.wicket.application.IComponentInstantiationListener;
+import org.apache.wicket.core.request.mapper.PageInstanceMapper;
+import org.apache.wicket.markup.MarkupFactory;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.request.IRequestMapper;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +18,8 @@ import com.example.pages.spieler.EditSpieler;
 import com.example.pages.tennis.Tennis;
 
 /**
- * Application object for your web application. If you want to run this
- * application without deploying, run the Start class.
+ * Application object for your web application. If you want to run
+ * this application without deploying, run the Start class.
  * 
  * @see com.example.Start#main(String[])
  */
@@ -44,6 +50,14 @@ public class WicketApplication extends WebApplication
     mountPage("spieler/confirm", ConfirmSave.class);
 
     getComponentInstantiationListeners().add(createComponentInstantiationListener());
+    getMarkupSettings().setMarkupFactory(new MarkupFactory());
+
+  }
+
+  @Override
+  protected IPageFactory newPageFactory()
+  {
+    return new ParameterPageFactory();
   }
 
   protected IComponentInstantiationListener createComponentInstantiationListener()
