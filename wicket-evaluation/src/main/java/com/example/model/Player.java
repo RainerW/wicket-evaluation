@@ -16,7 +16,7 @@ public class Player implements Serializable
   @GeneratedValue
   Long id;
 
-  @Column(nullable = false)
+  @Column(nullable = true)
   String vorname;
 
   @Column
