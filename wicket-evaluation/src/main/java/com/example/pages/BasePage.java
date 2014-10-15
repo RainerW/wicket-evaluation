@@ -1,6 +1,7 @@
 package com.example.pages;
 
 import org.apache.wicket.Page;
+import org.apache.wicket.devutils.debugbar.DebugBar;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
@@ -13,7 +14,7 @@ import com.example.pages.fussball.Fussball;
 import com.example.pages.tennis.Tennis;
 
 /**
- * Basisklasse für alle seiten der Anwendung.
+ * Basisklasse für alle Seiten der Anwendung.
  * Stellt das Basislayout der Seite inkl. Menü und der Fußzeile mit der Wicketversion bereit.
  */
 public abstract class BasePage extends WebPage
@@ -42,7 +43,7 @@ public abstract class BasePage extends WebPage
     addMenu(view, "About", About.class);
   
     add(new Label("version", getApplication().getFrameworkSettings().getVersion()));
-  
+    add(new DebugBar("debug"));
   }
   
   void addMenu(RepeatingView item, String text, Class<? extends Page> clazz)

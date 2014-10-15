@@ -2,6 +2,7 @@ package com.example.component.player;
 
 import java.util.List;
 
+import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.GenericPanel;
@@ -13,6 +14,7 @@ import org.apache.wicket.model.IModel;
 import com.example.model.Player;
 import com.example.model.SportArt;
 import com.example.pages.spieler.EditSpieler;
+@SuppressWarnings("serial")
 
 public class PlayerTable extends GenericPanel<List<Player>>
 {
@@ -20,14 +22,11 @@ public class PlayerTable extends GenericPanel<List<Player>>
   public PlayerTable(String id, SportArt art)
   {
     super(id);
-    // method loadPersons is defined elsewhere
-    ListDataProvider<Player> listDataProvider = new PlayerListDataProvider(
-        art);
+    ListDataProvider<Player> listDataProvider = new PlayerListDataProvider( art);
 
-    DataView<Player> dataView = new DataView<Player>("rows",
-        listDataProvider) {
-
-      @Override
+    DataView<Player> dataView = new DataView<Player>("rows", listDataProvider) 
+    {
+	  @Override
       protected void populateItem(Item<Player> item)
       {
         Player person = item.getModelObject();
@@ -49,4 +48,5 @@ public class PlayerTable extends GenericPanel<List<Player>>
       getPageParameters().add(EditSpieler.ID_PARAM, model.getObject().getId());
     }
   }
+
 }

@@ -22,25 +22,14 @@ http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
           class="org.springframework.orm.jpa.JpaTransactionManager"
           p:entityManagerFactory-ref="entityManagerFactory"/>
           
-		<bean id="dataSource"
-            class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-            <property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver" />
-            <property name="url"
-                value="jdbc:derby:target/database/evaluation;create=true" />
-            <property name="username" value="app" />
-            <property name="password" value="app" />
-        </bean>
-
-<!-- 
-	<jdbc:initialize-database data-source="dataSource">
-	    <jdbc:script location="classpath:schema_h2.sql" />
-	 </jdbc:initialize-database>
-	  -->
-    <!-- 
-    <jdbc:embedded-database id="dataSource" type="DERBY">
-        <jdbc:script location="classpath:/schema.sql" encoding="UTF-8" />
-    </jdbc:embedded-database>
-    -->    
+	<bean id="dataSource"
+           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+           <property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver" />
+           <property name="url"
+               value="jdbc:derby:target/database/evaluation;create=true" />
+           <property name="username" value="app" />
+           <property name="password" value="app" />
+     </bean>
 		
     <bean id="entityManagerFactory" 
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"

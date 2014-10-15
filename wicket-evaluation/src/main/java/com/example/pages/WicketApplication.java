@@ -1,10 +1,13 @@
 package com.example.pages;
 
+import net.ftlines.wicketsource.WicketSource;
+
 import org.apache.wicket.application.IComponentInstantiationListener;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.springframework.stereotype.Service;
+import org.wicketstuff.wicket7.util.watch.Nio2ModificationWatcher;
 
 import com.example.pages.fussball.Fussball;
 import com.example.pages.spieler.ConfirmSave;
@@ -44,6 +47,16 @@ public class WicketApplication extends WebApplication
     mountPage("spieler/confirm", ConfirmSave.class);
 
     getComponentInstantiationListeners().add(createComponentInstantiationListener());
+    
+    if ( getDebugSettings().isDevelopmentUtilitiesEnabled() ) 
+    {
+    	initDevelopmentTools();
+    }
+  }
+
+  void initDevelopmentTools() {
+	  WicketSource.configure(this);
+//	  getResourceSettings().setResourceWatcher( new Nio2ModificationWatcher(this));
   }
 
   protected IComponentInstantiationListener createComponentInstantiationListener()

@@ -2,6 +2,7 @@ package com.example.pages.tennis;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
+import org.apache.wicket.markup.html.link.Link;
 
 import com.example.component.player.PlayerTable;
 import com.example.model.Player;
@@ -15,10 +16,9 @@ public class Tennis extends BasePage
   {
     super.onInitialize();
     add(new PlayerTable("spielerliste", SportArt.TENNIS));
-    add(new AjaxFallbackLink<Player>("neuerSpieler") {
-
+    add(new Link<Player>("neuerSpieler") {
       @Override
-      public void onClick(AjaxRequestTarget target)
+      public void onClick()  
       {
         setResponsePage(new EditSpieler(new Player(SportArt.TENNIS)) {
           @Override
