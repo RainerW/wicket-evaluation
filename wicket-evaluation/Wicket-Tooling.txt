@@ -1,0 +1,9 @@
+* Eclipse Tooling für wicket:
+  id Prüfung, Simultane java+html refactorings 
+   -> https://code.google.com/p/qwickie/
+
+* Projekt hat ein aktiviertes Wicket-Source, Plugins für Browser finden sich hier:  https://github.com/42Lines/wicket-source
+  
+* JVM Hot swapping:
+  http://ssw.jku.at/dcevm/
+  Bzw. ab JDK 1.8 : https://github.com/dcevm/dcevm/releases
