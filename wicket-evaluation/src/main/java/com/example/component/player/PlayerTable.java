@@ -2,10 +2,8 @@ package com.example.component.player;
 
 import java.util.List;
 
-import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
-import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
 import org.apache.wicket.markup.repeater.data.ListDataProvider;
@@ -16,7 +14,7 @@ import com.example.model.SportArt;
 import com.example.pages.spieler.EditSpieler;
 @SuppressWarnings("serial")
 
-public class PlayerTable extends GenericPanel<List<Player>>
+public class PlayerTable extends BasePanel<List<Player>>
 {
 
   public PlayerTable(String id, SportArt art)

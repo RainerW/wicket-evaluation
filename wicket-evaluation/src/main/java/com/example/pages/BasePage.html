@@ -22,6 +22,12 @@
           <ul class="nav navbar-nav">
             <li wicket:id="menuItem"><a wicket:id="link">Item 1</a></li>
           </ul>
+          
+          <!-- menu on the right -->
+          <ul class="nav navbar-nav">
+            <!-- <li><a href="#">Link</a></li>  -->
+            <wicket:container wicket:id="langChooser"/>
+		      </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -36,5 +42,11 @@
         <p class="muted credit">Wicket version: <wicket:container wicket:id="version">x.x</wicket:container></p>
       </div>
     </div>
+    
+    <!-- Bootstrap core JavaScript ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    
 	</body>
 </html>

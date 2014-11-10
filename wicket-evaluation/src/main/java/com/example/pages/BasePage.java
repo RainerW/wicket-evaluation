@@ -9,7 +9,9 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.model.ResourceModel;
 
+import com.example.component.langchoose.LanguageChooser;
 import com.example.pages.fussball.Fussball;
 import com.example.pages.tennis.Tennis;
 
@@ -41,15 +43,18 @@ public abstract class BasePage extends WebPage
     addMenu(view, "Fussball", Fussball.class);
     addMenu(view, "Tennis", Tennis.class);
     addMenu(view, "About", About.class);
+    add(new LanguageChooser("langChooser"));
+    
   
     add(new Label("version", getApplication().getFrameworkSettings().getVersion()));
     add(new DebugBar("debug"));
+    
   }
   
-  void addMenu(RepeatingView item, String text, Class<? extends Page> clazz)
+  void addMenu(RepeatingView item, String key, Class<? extends Page> clazz)
   {
     WebMarkupContainer w = new WebMarkupContainer(item.newChildId());
     item.add(w.add(new ActivateOnPage(clazz)));
-    w.add(new BookmarkablePageLink<Tennis>("link", clazz).setBody(Model.of(text)));
+    w.add(new BookmarkablePageLink<Tennis>("link", clazz).setBody(new ResourceModel("menu." + key)));
   }
 }
